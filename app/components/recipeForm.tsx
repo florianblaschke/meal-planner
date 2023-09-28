@@ -1,11 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { uid } from "uid";
 import { addRecipe } from "../../lib/functions";
 
 interface Ingredient {
-  id: string;
   ingredient: string;
   amount: string;
   unit: string;
@@ -24,7 +22,6 @@ export default function RecipeForm() {
     setList([
       ...list,
       {
-        id: uid(5),
         ingredient: ingredient.current!.value,
         amount: amount.current!.value,
         unit: unit.current!.value,
@@ -102,7 +99,10 @@ export default function RecipeForm() {
         </div>
         {!mode &&
           list.map((ing) => (
-            <div key={ing.id} className="flex flex-row gap-2 items-center">
+            <div
+              key={ing.ingredient}
+              className="flex flex-row gap-2 items-center"
+            >
               <span>
                 {ing.ingredient}
                 {ing.amount}
