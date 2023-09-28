@@ -32,8 +32,8 @@ export default function RecipeForm() {
     ingredient.current!.focus();
   }
 
-  function deleteIngredient(id: string) {
-    setList(list.filter((ing) => ing.id !== id));
+  function deleteIngredient(ingredient: string) {
+    setList(list.filter((ing) => ing.ingredient !== ingredient));
   }
 
   return (
@@ -109,7 +109,7 @@ export default function RecipeForm() {
                 {ing.unit}
               </span>
               <button
-                onClick={() => deleteIngredient(ing.id)}
+                onClick={() => deleteIngredient(ing.ingredient)}
                 type="button"
                 className="btn btn-square"
               >

@@ -5,7 +5,7 @@ export default async function Home() {
   const data = await prisma.recipe.findMany({ include: { contains: true } });
   return (
     <main className="">
-      <ul>
+      <ul className="mb-20">
         {data.map((entry) => (
           <li key={entry.id}>
             <Recipe
